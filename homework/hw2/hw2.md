@@ -192,3 +192,9 @@ run time of target_mean_v6: 0.03390932083129883 seconds
 ```
 
 我注意到一个点，用到Cython的方法（v3到v6）的运行时间这样看来基本是随着数据规模线性变化；但是纯Python代码的v2方法，十万行需要3.8秒，一百万行运行时间来到了80秒，数据规模对其运行速度的影响程度估计比线性要高。
+
+## 参考资料/进一步研究
+
+- [Cython中prange速度提升不明显](https://stackoverflow.com/questions/34454080/cython-prange-not-so-fast-than-single-thread)
+- [Cython tutorial](https://www.infoworld.com/article/3252209/cython-tutorial-how-to-speed-up-python.html)
+- [Cython Language Basics](http://docs.cython.org/en/latest/src/reference/language_basics.html)
