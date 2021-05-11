@@ -8,7 +8,7 @@
 
 
 
-本次作业在王然老师提供的target encoding代码上进行修改尝试，以期进一步提升代码运行速度。以下代码为直接使用DataFrame的groupby函数去完成target encoding，该方法效率偏低。
+本次作业在[王然老师](https://github.com/rwbfd/geek-training-camp)提供的target encoding代码上进行修改尝试，以期进一步提升代码运行速度。以下代码为直接使用DataFrame的groupby函数去完成target encoding，该方法效率偏低。
 
 ```python
 # use DataFrame groupby method
@@ -21,8 +21,7 @@ def target_mean_v1(data, y_name, x_name):
 ```
 
 
-
-第二个方法是对DataFrame逐行处理，将中间结果都保存到dictionary里面，最后再得到结果。计算十万行数据用了3.85秒。
+第二个方法是对DataFrame逐行处理，将中间结果都保存到dictionary里面，最后再计算得到结果。计算十万行数据用了3.85秒。
 
 ```python
 def target_mean_v2(data, y_name, x_name):
@@ -75,7 +74,7 @@ cdef void target_mean_v3_impl(double[:] result, double[:] y, double[:] x, const 
 
 
 
-由于限制了$$x$$ 只能取整数，考虑将其定义为long类型，而不是之前的double类型。结果又比之前快了不少，十万行数据跑了0.014秒。
+由于作业中限制了$$x$$ 只能取整数，考虑将其定义为long类型，而不是之前的double类型。结果又比之前快了不少，十万行数据跑了0.014秒。
 
 ```cython
 # set the dtype of x to be long(np.int_) instead of double(np.float64)
